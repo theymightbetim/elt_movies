@@ -2,7 +2,7 @@ version: '3'
 
 services:
   source_postgres:
-    image: postgres:15
+    image: postgres:latest
     ports:
       - '5433:5432'
     networks:
@@ -27,8 +27,8 @@ services:
 
   elt_script:
     build:
-      context: ./src # Directory containing the Dockerfile and elt_script.py
-      dockerfile: Dockerfile # Name of the Dockerfile, if it's something other than "Dockerfile", specify here
+      context: ./src 
+      dockerfile: Dockerfile
     command: ['python', 'elt.py']
     networks:
       - elt_network
